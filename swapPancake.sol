@@ -13,19 +13,25 @@ contract Router {
 
 contract swapPancake
 {
-  Router router = Router(0xD99D1c33F9fC3444f8101754aBC46c52416550D1);
-  ERC20 WBNB_token = ERC20(0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd);
-  ERC20 BUSD_token = ERC20(0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7);
+
+  Router router = Router(0xD99D1c33F9fC3444f8101754aBC46c52416550D1);   // Direccion en Testnet de Pancakeswap como contrato
+  ERC20 WBNB_token = ERC20(0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd); // Direccion en Testnet de WBNB como contrato
+  ERC20 BUSD_token = ERC20(0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7); // Direccion en Testnet de BUSD como contrato
+
 
   function swapBNBoBSDC() external payable
   {
-    
-    address[] memory path = new address[](2);
-    path[0] = address(WBNB_token);
-    path[1] = address(BUSD_token);
+    address[] memory path = new address[](2);       // Se inicializa un array dinámico con una longitud inicial de 2 (0,1)
+    path[0] = address(WBNB_token);  // Adrees en Testnet de WBNB
+    path[1] = address(BUSD_token);  // Adrees en Testnet de BUSD
 
-    //DAI_token.approve(address(router), amount);
-
-    router.swapExactETHForTokens{value: msg.value}(0,path, msg.sender, block.timestamp);
+    router.swapExactETHForTokens{value: msg.value}(0,path, msg.sender, block.timestamp);  // Especificación del Swap
  } 
+
+
+  function aprobarWBNB() private {
+  WBNB_token.approve(address(this),9999999999999999999999999);   // Se autoriza al contrato hacer uso del fonde que se le deposita para hacer swaps 
+  }
+
+
 }
