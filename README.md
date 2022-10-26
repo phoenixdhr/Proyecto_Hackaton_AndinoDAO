@@ -16,4 +16,4 @@ Además, **CreadorDeContratosSwapAutomatico.sol** almacena las direcciones cread
 
 
 
-htthttps://drive.google.com/file/d/1yDDu1WglgzorzvGE2RSDRBLRPfK_gsGL/viewp:// "Estructura Span"
+htthttps://drive.google.com/file/d/1yDDu1WglgzorzvGE2RSDRBLRPfK_gsGL/view
