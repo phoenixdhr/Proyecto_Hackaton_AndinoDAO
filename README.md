@@ -6,7 +6,7 @@
 
 El proyecto consta de dos archivos .sol  **CreadorDeContratosSwapAutomatico.sol** y **SwapInstantaneo.sol**
 
-## CreadorDeContratosSwapAutomatico.
+## CreadorDeContratosSwapAutomatico.sol
 
 **CreadorDeContratosSwapAutomatico.sol** internamente llama a  **SwapInstantaneo.sol** (depende de el) para  crear direcciones de Contrato que realizan  Swaps automáticos al llegar a un monto.
 
