@@ -41,17 +41,18 @@ contract SwapInstantaneo {
     }
 
     constructor
-    (     
+    (   address  _creador,  
         string memory nombreNegocio,
         uint montoMeta
     )  {
-        creator = payable(msg.sender);
+        creator = payable(_creador);
         title = nombreNegocio;
         amountGoal = montoMeta;
         currentBalance = 0;
     }
 
-    // @dev Function para recibir depositos
+
+    // @dev Function para recibir depositos y los suma a "currentBalance"
       
     function contribute() external inState(State.Fundraising) payable {
         contributions[msg.sender] = contributions[msg.sender] + msg.value;
@@ -59,6 +60,20 @@ contract SwapInstantaneo {
         emit FundingReceived(msg.sender, msg.value, currentBalance);
         checkIfFundingComplete();
     }
+
+
+
+    // @dev Receive permite que los depositos de BNB directamente a la direccion del contrato se sumen a "currentBalance"
+
+    receive() external payable inState(State.Fundraising) {
+        contributions[msg.sender] = contributions[msg.sender] + msg.value;
+        currentBalance = currentBalance + msg.value;
+        emit FundingReceived(msg.sender, msg.value, currentBalance);
+        checkIfFundingComplete();    
+              
+    }
+
+
 
     // @dev function para cambiar el estado del proyecto dependiendo de las condiciones.
    
