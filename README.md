@@ -2,8 +2,7 @@
 
 - Proyecto desarrollado en la Red de Binance Testnet: https://chainlist.org/chain/97.
 - Faucet Binance Testnet: https://testnet.binance.org/faucet-smart.
-- Explorador de Bloques BNB Testnet https://testnet.bscscan.com/address
-
+- Explorador de Bloques BNB Testnet https://testnet.bscscan.com/
 El proyecto consta de dos archivos .sol  **CreadorDeContratosSwapAutomatico.sol** y **SwapInstantaneo.sol**
 
 ## CreadorDeContratosSwapAutomatico.sol
