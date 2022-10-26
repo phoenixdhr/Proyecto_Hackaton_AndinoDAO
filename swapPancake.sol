@@ -19,18 +19,18 @@ contract swapPancake
   ERC20 BUSD_token = ERC20(0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7); // Direccion en Testnet de BUSD como contrato
 
 
-  function swapBNBoBSDC() external payable
+  function swapBNBtoBUSD() external payable
   {
     address[] memory path = new address[](2);       // Se inicializa un array dinámico con una longitud inicial de 2 (0,1)
-    path[0] = address(WBNB_token);  // Adrees en Testnet de WBNB
-    path[1] = address(BUSD_token);  // Adrees en Testnet de BUSD
+    path[0] = address(WBNB_token);  // Address en Testnet de WBNB
+    path[1] = address(BUSD_token);  // Address en Testnet de BUSD
 
     router.swapExactETHForTokens{value: msg.value}(0,path, msg.sender, block.timestamp);  // Especificación del Swap
  } 
 
 
   function aprobarWBNB() private {
-  WBNB_token.approve(address(this),9999999999999999999999999);   // Se autoriza al contrato hacer uso del fonde que se le deposita para hacer swaps 
+  WBNB_token.approve(address(this),9999999999999999999999999);   // Se autoriza al contrato hacer uso del fondo que se le deposita (para hacer swaps) 
   }
 
 
