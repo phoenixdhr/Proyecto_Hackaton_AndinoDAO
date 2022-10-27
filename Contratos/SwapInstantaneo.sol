@@ -4,7 +4,7 @@ pragma solidity >=0.7.0 <=0.9.0;
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
 
 contract Router {
-    function swapExactETHForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline)
+    function swapExactBNBForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline)
         external
         payable
         returns (uint[] memory amounts){}
@@ -93,7 +93,7 @@ contract SwapInstantaneo {
         path[0] = address(WBNB_token);  // Address en Testnet de WBNB
         path[1] = address(BUSD_token);  // Address en Testnet de BUSD
 
-        router.swapExactETHForTokens{value: totalRaised}(0,path, creator, block.timestamp);
+        router.swapExactBNBForTokens{value: totalRaised}(0,path, creator, block.timestamp);
         emit CreatorPaid(creator);
         state = State.Fundraising;
        
